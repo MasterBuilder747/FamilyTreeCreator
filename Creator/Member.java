@@ -12,6 +12,21 @@ public class Member {
     private int gender; //0 = female, 1 = male
     private String relation; //how the member is related in the family
 
+    /*
+    //TODO implement this later
+    //ID: internal identifier in case
+    private final int ID;
+
+    /*
+    //constructor to identify the member by ID
+    public Member (final int id) {
+        //ID = id;
+    }
+    public int getID() {
+        return ID;
+    }
+    */
+
     //add information into the member
     public void addFirstName (String name) {
         firstName = name;

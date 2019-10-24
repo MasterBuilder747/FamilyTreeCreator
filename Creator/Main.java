@@ -40,6 +40,11 @@ public class Main {
     }
 
     public static void createMember() {
+        /*
+        for (int i = 0; i < 0; i++) {
+            Member m = new Member(i);
+        }
+        */
         Member m = new Member();
         Scanner kb = new Scanner(System.in);
 
