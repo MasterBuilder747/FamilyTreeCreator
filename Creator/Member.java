@@ -32,10 +32,7 @@ public class Member {
         firstName = name;
     }
     public void addMiddleName (String name) {
-        middleName = name;
-    }
-    public void addMiddleName () {
-        middleName = "none";
+            middleName = name;
     }
     public void addLastName (String name) {
         lastName = name;
@@ -49,16 +46,17 @@ public class Member {
 
     //retrieve information about the member
     public String getFirstName () {
-        return firstName;
+        return firstName + " ";
     }
     public String getMiddleName () {
         if (middleName == null) {
-            return "no middle name";
+            return "";
+        }else {
+            return middleName + " ";
         }
-        return middleName;
     }
     public String getLastName () {
-        return lastName;
+        return lastName + "";
     }
     public String getGender () {
         if (gender == 0) {
@@ -67,6 +65,9 @@ public class Member {
             return "male";
         }
     }
+
+    //TODO: add rewriting of attributes
+
     public String getRelation () {
         return relation;
     }

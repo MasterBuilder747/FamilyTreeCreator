@@ -55,11 +55,15 @@ public class Main {
             System.out.println("Invalid input.");
         }
 
-        System.out.print("enter middle name, leave blank if there is no middle name: ");
-        try {
-            m.addMiddleName(kb.next());
-        }catch (Exception e) {
-            System.out.println("Invalid input.");
+        System.out.println("Is there a middle name? Yes = 1, No = 0");
+        int middle = kb.nextInt();
+        if (middle == 1) {
+            System.out.print("enter middle name: ");
+            try {
+                m.addMiddleName(kb.next());
+            } catch (Exception e) {
+                System.out.println("Invalid input.");
+            }
         }
 
         System.out.print("enter last name: ");
@@ -69,7 +73,7 @@ public class Main {
             System.out.println("Invalid input.");
         }
 
-        System.out.println("This member's name is: " + m.getFirstName() + " " + m.getMiddleName() + " " + m.getLastName() + ".");
+        System.out.println("This member's name is: " + m.getFirstName() + m.getMiddleName() + m.getLastName() + ".");
 
     }
 
