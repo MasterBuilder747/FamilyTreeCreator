@@ -12,63 +12,56 @@ public class Member {
     private int gender; //0 = female, 1 = male
     private String relation; //how the member is related in the family
 
-    /*
-    //TODO implement this later
-    //ID: internal identifier in case
-    private final int ID;
+    private final int ID; //passed from the for statement, stored in the array and object in case as a final
 
-    /*
-    //constructor to identify the member by ID
-    public Member (final int id) {
-        //ID = id;
+    Member (int id) {
+        ID = id;
     }
-    public int getID() {
-        return ID;
-    }
-    */
 
-    //add information into the member
-    public void addFirstName (String name) {
+    //setters
+    void addFirstName(String name) {
         firstName = name;
     }
-    public void addMiddleName (String name) {
+    void addMiddleName(String name) {
+        if (name != null) {
             middleName = name;
+        }
     }
-    public void addLastName (String name) {
+    void addLastName(String name) {
         lastName = name;
     }
-    public void setGender (int g) {
+    void setGender(int g) {
         gender = g;
     }
-    public void setRelation (String r) {
+    void setRelation(String r) {
         relation = r;
     }
 
-    //retrieve information about the member
-    public String getFirstName () {
+    //getters
+    String getFirstName() {
         return firstName + " ";
     }
-    public String getMiddleName () {
+    String getMiddleName() {
         if (middleName == null) {
             return "";
         }else {
             return middleName + " ";
         }
     }
-    public String getLastName () {
+    String getLastName() {
         return lastName + "";
     }
-    public String getGender () {
+    String getGender() {
         if (gender == 0) {
             return "female";
         }else{
             return "male";
         }
     }
-
-    //TODO: add rewriting of attributes
-
-    public String getRelation () {
+    int getID() {
+        return ID;
+    }
+    public String getRelation() {
         return relation;
     }
 
