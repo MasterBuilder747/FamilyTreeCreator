@@ -4,13 +4,14 @@ import java.util.Scanner;
 //import Creator.Member; //only use if class is in a different package
 
 public class Main {
+    /*
 
     private static void createMember(int id) {
-        /*
+
         for (int i = 0; i < 0; i++) {
             Member m = new Member(i);
         }
-        */
+
         Member m = new Member(id);
         Scanner kb = new Scanner(System.in);
 
@@ -46,6 +47,7 @@ public class Main {
         //returning a class
         //return new Member(id);
     }
+    */
 
     public static void main(String[] args) {
 
@@ -59,6 +61,7 @@ public class Main {
         //establish allocation
         System.out.println("How many members are in your family? Type 0 for default allocation, 1024.");
         int N = kb.nextInt();
+        /*
         if (N != 0) {
             //list of all family members
             //for (int i = N; i > N; --i) {
@@ -67,7 +70,60 @@ public class Main {
         }else{
             Member[] family = new Member[1024];
         }
+        */
 
+        String n1 = null;
+        String n2 = null;
+        String n3 = null;
+        int g = 0;
+        String r = null;
+
+        System.out.print("enter first name: ");
+        try {
+            n1 = kb.next();
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+
+        System.out.println("Is there a middle name? Yes = 1, No = 0");
+        int middle = kb.nextInt();
+        if (middle == 1) {
+            System.out.print("enter middle name, putting all middle names in spaces if necessary: ");
+            try {
+                n2 = kb.next();
+            } catch (Exception e) {
+                System.out.println("Invalid input.");
+            }
+        }
+
+        System.out.print("enter last name: ");
+        try {
+            n3 = kb.next();
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+
+        System.out.println("Who is this related to? Use the exact name.");
+        try {
+            r = kb.next();
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+
+        Member[] family = new Member[1024];
+        int id = 0;
+        family[id] = new Member(n1, n2, n3, g, r);
+
+        if (n2 != null) {
+            System.out.println("This member's name is: " + family[id].getFirstName() + family[id].getMiddleName() + family[id].getLastName() + ".");
+        }else{
+            System.out.println("This member's name is: " + family[id].getFirstName() + family[id].getLastName());
+        }
+
+        id++;
+
+
+        /*
         //add info to members
         int add = 1;
         int id = 0;
@@ -88,6 +144,9 @@ public class Main {
                 System.out.println("Invalid input.");
             }
         }
+        */
+        //output the family
+        //System.out.println(familyName);
 
         //class cannot be accessed from here, need to find a way to do that later
 

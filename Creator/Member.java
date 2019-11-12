@@ -12,10 +12,14 @@ public class Member {
     private int gender; //0 = female, 1 = male
     private String relation; //how the member is related in the family
 
-    private final int ID; //passed from the for statement, stored in the array and object in case as a final
+    //private final int ID; //passed from the for statement, stored in the array and object in case as a final
 
-    Member (int id) {
-        ID = id;
+    Member (String n1, String n2, String n3, int g, String r) {
+        firstName = n1;
+        middleName = n2;
+        lastName = n3;
+        gender = g;
+        relation = r;
     }
 
     //setters
@@ -57,9 +61,6 @@ public class Member {
         }else{
             return "male";
         }
-    }
-    int getID() {
-        return ID;
     }
     public String getRelation() {
         return relation;
