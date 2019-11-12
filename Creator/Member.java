@@ -11,10 +11,18 @@ public class Member {
 
     private int gender; //0 = female, 1 = male
     private String relation; //how the member is related in the family
+    private final int ID;
 
     //private final int ID; //passed from the for statement, stored in the array and object in case as a final
 
-    Member (String n1, String n2, String n3, int g, String r) {
+    Member (int id, String n1, String n2, String n3) {
+        ID = id;
+        firstName = n1;
+        middleName = n2;
+        lastName = n3;
+    }
+    Member (int id, String n1, String n2, String n3, int g, String r) {
+        ID = id;
         firstName = n1;
         middleName = n2;
         lastName = n3;
@@ -23,15 +31,15 @@ public class Member {
     }
 
     //setters
-    void addFirstName(String name) {
+    void setFirstName(String name) {
         firstName = name;
     }
-    void addMiddleName(String name) {
+    void setMiddleName(String name) {
         if (name != null) {
             middleName = name;
         }
     }
-    void addLastName(String name) {
+    void setLastName(String name) {
         lastName = name;
     }
     void setGender(int g) {

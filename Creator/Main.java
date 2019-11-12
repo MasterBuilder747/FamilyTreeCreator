@@ -1,76 +1,12 @@
 package Creator;
 
 import java.util.Scanner;
-//import Creator.Member; //only use if class is in a different package
 
 public class Main {
-    /*
 
-    private static void createMember(int id) {
-
-        for (int i = 0; i < 0; i++) {
-            Member m = new Member(i);
-        }
-
-        Member m = new Member(id);
-        Scanner kb = new Scanner(System.in);
-
-        System.out.print("enter first name: ");
-        try {
-            m.addFirstName(kb.next());
-        } catch (Exception e) {
-            System.out.println("Invalid input.");
-        }
-
-        System.out.println("Is there a middle name? Yes = 1, No = 0");
-        int middle = kb.nextInt();
-        if (middle == 1) {
-            System.out.print("enter middle name: ");
-            try {
-                m.addMiddleName(kb.next());
-            } catch (Exception e) {
-                System.out.println("Invalid input.");
-            }
-        } else {
-            m.addMiddleName(null);
-        }
-
-        System.out.print("enter last name: ");
-        try {
-            m.addLastName(kb.next());
-        } catch (Exception e) {
-            System.out.println("Invalid input.");
-        }
-
-        System.out.println("This member's name is: " + m.getFirstName() + m.getMiddleName() + m.getLastName() + ".");
-
-        //returning a class
-        //return new Member(id);
-    }
-    */
-
-    public static void main(String[] args) {
+    private static Member createMember(int id) {
 
         Scanner kb = new Scanner(System.in);
-
-        System.out.println("===Family Tree Creator===");
-        System.out.println("Enter name of family: ");
-        String familyName = kb.next();
-        System.out.println("Your family name is: " + familyName);
-
-        //establish allocation
-        System.out.println("How many members are in your family? Type 0 for default allocation, 1024.");
-        int N = kb.nextInt();
-        /*
-        if (N != 0) {
-            //list of all family members
-            //for (int i = N; i > N; --i) {
-                Member[] family = new Member[N];
-            //}
-        }else{
-            Member[] family = new Member[1024];
-        }
-        */
 
         String n1 = null;
         String n2 = null;
@@ -78,13 +14,12 @@ public class Main {
         int g = 0;
         String r = null;
 
-        System.out.print("enter first name: ");
+        System.out.print("Enter first name: ");
         try {
             n1 = kb.next();
         } catch (Exception e) {
             System.out.println("Invalid input.");
         }
-
         System.out.println("Is there a middle name? Yes = 1, No = 0");
         int middle = kb.nextInt();
         if (middle == 1) {
@@ -95,14 +30,18 @@ public class Main {
                 System.out.println("Invalid input.");
             }
         }
-
-        System.out.print("enter last name: ");
+        System.out.print("Enter last name: ");
         try {
             n3 = kb.next();
         } catch (Exception e) {
             System.out.println("Invalid input.");
         }
-
+        System.out.println("What is the gender of the member? 0 = female, 1 = male");
+        try {
+            g = kb.nextInt();
+        }catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
         System.out.println("Who is this related to? Use the exact name.");
         try {
             r = kb.next();
@@ -110,17 +49,24 @@ public class Main {
             System.out.println("Invalid input.");
         }
 
-        Member[] family = new Member[1024];
-        int id = 0;
-        family[id] = new Member(n1, n2, n3, g, r);
+        return new Member(id, n1, n2, n3, g, r);
+    }
 
-        if (n2 != null) {
-            System.out.println("This member's name is: " + family[id].getFirstName() + family[id].getMiddleName() + family[id].getLastName() + ".");
-        }else{
-            System.out.println("This member's name is: " + family[id].getFirstName() + family[id].getLastName());
+    public static void main(String[] args) {
+
+        Scanner kb = new Scanner(System.in);
+
+        System.out.println("===Family Tree Creator===");
+        System.out.println("Enter name of family: ");
+        String familyName = kb.next();
+        System.out.println("Your family name is: " + familyName);
+
+        Member[] family = new Member[1024];
+        for (int i = 0; i < 1024; i++) {
+            family[i] = createMember(i);
         }
 
-        id++;
+
 
 
         /*
