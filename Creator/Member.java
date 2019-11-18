@@ -9,26 +9,35 @@ public class Member {
     //this can have multiple middle names with a space in between
     private String lastName;
 
+    //relations
+    //parents
+    //parent always has the same last name
+    //parent must be exact name
+    //includes mother and father
+    private String mother; //only use first name, always uses married name for setting last name
+    private String father; //only use first name
+    //children
+    private String[] children = new String[10]; //a list of up to 10 children, if applicable
+    //only use first name as identifier
+
+    //marriage
+    private String marriedName; //only used if married = true && gender = 0, stores the new last name
+    //maiden name is the last name that is used
+    //this must be handled by testing if married = true
+    private boolean married;
+    private String spouse; //only used if married = true, exact name must be used
+
     private int gender; //0 = female, 1 = male
-    private String relation; //how the member is related in the family
-    private final int ID;
 
-    //private final int ID; //passed from the for statement, stored in the array and object in case as a final
+    //construct the member
+    //required: first and last name, gender
+    //last name is always the maiden name if married
+    Member (String firstName, String lastName, int gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+    }
 
-    Member (int id, String n1, String n2, String n3) {
-        ID = id;
-        firstName = n1;
-        middleName = n2;
-        lastName = n3;
-    }
-    Member (int id, String n1, String n2, String n3, int g, String r) {
-        ID = id;
-        firstName = n1;
-        middleName = n2;
-        lastName = n3;
-        gender = g;
-        relation = r;
-    }
 
     //setters
     void setFirstName(String name) {
@@ -44,9 +53,6 @@ public class Member {
     }
     void setGender(int g) {
         gender = g;
-    }
-    void setRelation(String r) {
-        relation = r;
     }
 
     //getters
@@ -70,8 +76,6 @@ public class Member {
             return "male";
         }
     }
-    public String getRelation() {
-        return relation;
-    }
+
 
 }

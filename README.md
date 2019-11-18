@@ -1,4 +1,4 @@
-# FamilyTreeCreator
+# FamilyTreeCreators
 
 basic program to be able to add information to family members by adding attributes to them
 

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    /*
     private static Member createMember(int id) {
 
         Scanner kb = new Scanner(System.in);
@@ -51,6 +52,7 @@ public class Main {
 
         return new Member(id, n1, n2, n3, g, r);
     }
+    */
 
     public static void main(String[] args) {
 
@@ -63,11 +65,10 @@ public class Main {
 
         Member[] family = new Member[1024];
         for (int i = 0; i < 1024; i++) {
-            family[i] = createMember(i);
+            //family[i] = createMember(i);
         }
 
-
-
+        System.out.println("Name: " + family[0].getFirstName() + " " + family[0].getMiddleName() + " " + family[0].getLastName());
 
         /*
         //add info to members
@@ -98,7 +99,7 @@ public class Main {
 
         //TODO: add checking for numbers, must only be chars
         //TODO: add saving for family tree on a file, also to be retrieved
-
     }
+
 }
 
