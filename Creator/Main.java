@@ -59,14 +59,42 @@ public class Main {
         Scanner kb = new Scanner(System.in);
 
         System.out.println("===Family Tree Creator===");
+
+        //set the first and last name of the main parents:
+        //their last name is also the family name
         System.out.println("Enter name of family: ");
         String familyName = kb.next();
-        System.out.println("Your family name is: " + familyName);
+        System.out.println("Enter the first name of the main Mother: ");
+        String motherName = kb.next();
+        System.out.println("Enter the first name of the main Father: ");
+        String fatherName = kb.next();
 
+        //this sets the last name of the main parents
+        //this will be stored in the 0, 1 fields of the array, this will always be taken up and cannot be changed
         Member[] family = new Member[1024];
+        family[0] = new Member(0, motherName, familyName, true);
+        family[1] = new Member(1, fatherName, familyName, true);
+
+        //add the children of the parents, using a new array for that tier when storing on the main parent
+        //add id identifier
+        int id = 0;
+        //this id is used for the value of the child being added if so
+        int childId = 0;
+        System.out.println("Add a new child of the main parents: ");
+        System.out.println("Enter the first name: ");
+        String firstName = kb.next();
+        System.out.println("Enter the last name: ");
+        String lastName = kb.next();
+        System.out.println("Are they female(0) or male(1) ?");
+        int gender = kb.nextInt();
+        family[2] = new Member(gender, firstName, lastName, false);
+        family[2].addChild(childId, firstName);
+
+        /*
         for (int i = 0; i < 1024; i++) {
             //family[i] = createMember(i);
         }
+        */
 
         //System.out.println("Name: " + family[0].getFirstName() + " " + family[0].getMiddleName() + " " + family[0].getLastName());
 
