@@ -68,7 +68,7 @@ public class Main {
             //family[i] = createMember(i);
         }
 
-        System.out.println("Name: " + family[0].getFirstName() + " " + family[0].getMiddleName() + " " + family[0].getLastName());
+        //System.out.println("Name: " + family[0].getFirstName() + " " + family[0].getMiddleName() + " " + family[0].getLastName());
 
         /*
         //add info to members

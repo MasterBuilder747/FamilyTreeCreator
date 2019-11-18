@@ -26,9 +26,9 @@ class Member {
     //only use first name as identifier
 
     //marriage
-    private String marriedName; //only used if gender = 0, stores the new last name
+    private String marriedName = null; //only used if gender = 0, stores the new last name
     //maiden name is the last name that is used
-    private String spouse; //only used if married = true, exact name must be used
+    private String spouse = null; //only used if married = true, exact name must be used
     //if spouse has a field, then we can assume that the member is married
 
     private int gender; //0 = female, 1 = male
@@ -37,20 +37,20 @@ class Member {
     //required: first and last name, gender
     //last name is always the maiden name if married
     //general constructor, not used
-    Member (int gender, String firstName, String lastName) {
+    Member(int gender, String firstName, String lastName) {
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
     }
     //main parent constructor, children get added later using addChild()
-    Member (int gender, String firstName, String lastName, boolean mainParent) {
+    Member(int gender, String firstName, String lastName, boolean mainParent) {
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mainParent = mainParent;
     }
-    //child constructor
-    Member (int gender, String firstName, String lastName, boolean mainParent, String parent) {
+    //child constructor, children do not exist
+    Member(int gender, String firstName, String lastName, boolean mainParent, String parent) {
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,7 +58,7 @@ class Member {
         this.parent = parent;
     }
     //regular parent constructor, children get added later using addChild()
-    Member (int gender, String firstName, String lastName, boolean mainParent, String parent, String spouse) {
+    Member(int gender, String firstName, String lastName, boolean mainParent, String parent, String spouse) {
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,28 +74,40 @@ class Member {
         //this will have to be applied twice to both the mother and father
         this.children[id] = name;
     }
+    void setMarriedName(String marriedName) {
+        this.marriedName = marriedName;
+    }
 
     //getters
     String getChild(int id) {
         if (children[id] == null) {
             return children[id];
+        } else {
+            return "none";
+        }
+    }
+    String getParent() {
+        if (!mainParent) {
+            return parent;
         }else{
             return "none";
         }
     }
     String getFirstName() {
-        return firstName + " ";
+        return firstName;
     }
     String getLastName() {
-        return lastName + "";
+        if (marriedName == null) {
+            return lastName;
+        }else{
+            return marriedName;
+        }
     }
     String getGender() {
         if (gender == 0) {
             return "female";
-        }else{
+        } else {
             return "male";
         }
     }
-
-
 }
